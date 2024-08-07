@@ -1,0 +1,20 @@
+{
+  "name": "Weather PWA",
+  "short_name": "Weather",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "description": "A PWA for weather forecast",
+  "icons": [
+    {
+      "src": "images/img1.svg",
+      "sizes": "48x48",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "images/img2.svg",
+      "sizes": "72x72",
+      "type": "image/svg+xml"
+    }
+  ]
+}
