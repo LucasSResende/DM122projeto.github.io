@@ -1,17 +1,17 @@
 self.addEventListener('install', (event) => {
-    console.log(`[Service Worker] install event lifecycle!!`);
-    self.skipWaiting(); // don't wait for installation just activate it
+    console.log(`Install event!`);
+    self.skipWaiting(); 
     event.waitUntil(installStaticAssets());
   });
   
   self.addEventListener('activate', (event) => {
-    console.log(`[Service Worker] activate event lifecycle!`);
+    console.log(`Activate event!`);
     event.waitUntil(cacheCleanup());
-    return self.clients.claim(); // claim all tabs
+    return self.clients.claim(); 
   });
   
   self.addEventListener('fetch', async (event) => {
-    console.log(`[Service Worker] fetch event lifecycle!`);
+    console.log(`Fetch event!`);
     event.respondWith(cacheFirst(event.request));
   });
   
