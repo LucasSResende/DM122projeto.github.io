@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #121212; /* Fundo escuro */
+  background-color: #121212;
   color: #ffffff;
   display: flex;
   justify-content: center;
@@ -13,8 +13,8 @@ main {
   max-width: 600px;
   margin: auto;
   padding: 2em;
-  background-color: #1e1e1e; /* Fundo do main */
-  border-radius: 12px; /* Bordas arredondadas */
+  background-color: #1e1e1e; 
+  border-radius: 12px; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -27,9 +27,9 @@ form {
 input[type="text"] {
   padding: 1em;
   font-size: 1.2em;
-  border-radius: 8px; /* Bordas arredondadas */
+  border-radius: 8px;
   border: 1px solid #333;
-  background-color: #2e2e2e; /* Fundo do input */
+  background-color: #2e2e2e;
   color: #fff;
 }
 
@@ -37,7 +37,7 @@ button[type="submit"], button.edit, button.delete {
   padding: 0.75em 1.5em;
   font-size: 1em;
   border: none;
-  border-radius: 8px; /* Bordas arredondadas */
+  border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -51,22 +51,16 @@ button[type="submit"]:hover {
   background-color: #3700b3;
 }
 
-button.edit {
-  background-color: #03dac6;
-  color: #fff;
+button.edit, button.delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
 }
 
-button.delete {
-  background-color: #b00020;
-  color: #fff;
-}
-
-button.edit:hover {
-  background-color: #018786;
-}
-
-button.delete:hover {
-  background-color: #cf6679;
+button.edit img, button.delete img {
+  width: 24px;
+  height: 24px;
 }
 
 #weather-result {
@@ -95,5 +89,5 @@ th {
 }
 
 td {
-  background-color: #1e1e1e; /* Fundo da tabela */
+  background-color: #1e1e1e;
 }

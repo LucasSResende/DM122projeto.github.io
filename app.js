@@ -16,9 +16,7 @@ weatherForm.addEventListener('submit', async (event) => {
   } else {
     weatherData = await fetchWeatherFromAPI(city);
     if (weatherData) {
-      await addWeatherData(city, weatherData);
       displayWeather(city, weatherData);
-      updateWeatherTable();
     }
   }
 });
@@ -72,10 +70,18 @@ async function updateWeatherTable() {
     row.insertCell().textContent = weather.data.description;
 
     const actionsCell = row.insertCell();
-    actionsCell.innerHTML = `
-      <button class="edit" onclick="editWeather('${weather.city}')">Editar</button>
-      <button class="delete" onclick="deleteWeather('${weather.city}')">Excluir</button>
-    `;
+    const editButton = document.createElement('button');
+    editButton.className = 'edit';
+    editButton.innerHTML = '<img src="images/edit.png" alt="Editar">';
+    editButton.addEventListener('click', () => editWeather(weather.city));
+    
+    const deleteButton = document.createElement('button');
+    deleteButton.className = 'delete';
+    deleteButton.innerHTML = '<img src="images/recycle.png" alt="Excluir">';
+    deleteButton.addEventListener('click', () => deleteWeather(weather.city));
+    
+    actionsCell.appendChild(editButton);
+    actionsCell.appendChild(deleteButton);
   });
 }
 
@@ -84,9 +90,9 @@ async function editWeather(city) {
   const weatherData = await db.weather.get(city);
   const newCity = prompt('Novo nome para a cidade:', city);
   if (newCity && newCity !== city) {
-    const updatedData = { ...weatherData.data, city: newCity };
-    await updateWeatherData(newCity, updatedData);
-    await deleteWeatherData(city);
+    const updatedData = { ...weatherData.data };
+    await db.weather.put({ city: newCity, data: updatedData });
+    await db.weather.delete(city);
     updateWeatherTable();
   }
 }
@@ -96,7 +102,6 @@ async function deleteWeather(city) {
   updateWeatherTable();
 }
 
-// Initialize the table on load
 document.addEventListener('DOMContentLoaded', updateWeatherTable);
 
 registerServiceWorker();
