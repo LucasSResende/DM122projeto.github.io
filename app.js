@@ -102,6 +102,8 @@ async function deleteWeather(city) {
   updateWeatherTable();
 }
 
-document.addEventListener('DOMContentLoaded', updateWeatherTable);
+document.addEventListener('DOMContentLoaded', 
+  () => {updateWeatherTable();
+});
 
 registerServiceWorker();
