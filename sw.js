@@ -33,11 +33,7 @@ self.addEventListener('install', (event) => {
           './helpers/database.js',
           './helpers/install-sw.js',
           './helpers/repo-db.js',
-          './images/img1.svg',
-          './images/img2.svg',
-          './style.css',
-          './app.js',
-          './sw.js',
+          './app.js'
         ])
       );
   }
