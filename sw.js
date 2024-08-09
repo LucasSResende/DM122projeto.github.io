@@ -24,16 +24,16 @@ self.addEventListener('install', (event) => {
         cache.addAll([
           'https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.fluid.classless.min.css',
           'https://cdn.jsdelivr.net/npm/dexie@4.0.8/+esm',
+          './images/edit.png',
+          './images/recycle.png',
+          './images/favicon-16x16.png',
+          './images/favicon-32x32.png',
           './',
           './index.html',
           './helpers/database.js',
           './helpers/install-sw.js',
           './helpers/repo-db.js',
-          './images/img1.svg',
-          './images/img2.svg',
-          './style.css',
-          './app.js',
-          './sw.js',
+          './app.js'
         ])
       );
   }
